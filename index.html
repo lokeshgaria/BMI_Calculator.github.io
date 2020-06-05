@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <!--google fonts link-->
+    <link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href=" https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRnxhsiY_QXiKlav0nQI5cgKEhQyyU9Jd_Y93OKfy0NMl7aQ95f&usqp=CAU" type="image/x-icon">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3) ), url('https://images.pexels.com/photos/703012/pexels-photo-703012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-repeat: no-repeat;
+            width: 100%;
+            opacity: 0.9;
+            height: 100vh;
+            background-position: center;
+            position: relative;
+            background-size: cover;
+             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+        }
+       
+        #heart{
+            font-size: 23px;
+        
+        }
+
+        .card{
+            width: 30%;
+            position: relative;
+            left: 35%;
+            top: 12%;
+            height: 80vh;
+            background-color: #dbdcde;
+            border: none;
+        }
+        
+        .card-header{
+            background-color: #dbdcde;
+            font-size: 2rem;
+            border: none;
+        }
+        .card-footer{
+            border: none;
+            position: relative;
+            top: 0%;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+         #name , #lname , #Lovevalue{
+             color: black;
+             font-size: larger;
+             font-weight:bold;
+             font-family: cursive;
+            
+         }
+         .btn{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+            width: 100%;
+            font-weight: bold;
+            margin-bottom: 2%;
+            
+         }
+             @media (max-width: 450px){
+                .card{
+            width: 66%;
+            left: 17%;
+            top: 21%;
+            height: 50%;
+            }
+            #name , #lname{
+             position: relative;
+             top: -40px;
+             }
+             .btn{
+                 position: relative;
+                 top: -50px;
+             }
+             #Lovevalue{
+                 position: relative;
+                 top: -30px;
+             }
+
+             .card-footer{
+            width: 100%;
+            top: 0%;
+             
+      
+          
+            background-color: #d7d8da;
+           
+            
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="card    text-center">
+        <div class="card-header">Body Mass Index</div>
+        <div class="card-body">
+             <form action="" class="form">
+                 <div class="form-group">
+                     <input class="text-center text-secondary form-control input"   type="text" name="" id="name" placeholder="Weight in kg (i.e 50kg)">
+                 </div>
+                  
+                 <div class="form-group">
+                    <input class="text-center form-control"   type="text" name="" id="lname" placeholder="height (i.e 5.5)">
+                </div>
+                 
+                <div class=" button  m-auto ">
+                    <input class="btn btn-primary text-white  " type="button" value="Calculate" onclick="calculate()">
+                </div>
+                <div class="form-group">
+                    <input class="text-center form-control"   type="text" name="" id="Lovevalue" placeholder="BMI" >
+                </div>
+             </form>
+        </div>
+        <div class="card-footer" id="footer">Healthy BMI range is 19-25</div>
+      </div>
+
+      <script>
+
+        
+          function calculate(){
+            var weight = document.getElementById("name").value;
+              var height = document.getElementById("lname").value;
+          
+          if(weight == ""){
+              alert("Please Enter your Weight");
+          }
+           
+          else if(isNaN(weight)){
+              alert("Invalid Input");
+          }
+
+          if(height == ""){
+              alert("Please Enter your Height");
+          }
+           
+          else if(isNaN(height)){
+              alert("Invalid Input");
+          }
+            else{
+              var weight = document.getElementById('name').value;
+              var height = document.getElementById('lname').value;
+           
+              height= height*12;
+              height=height * 0.025;
+             
+             var newBmi = weight/(height * height);
+
+             newBmi = Math.round(newBmi);
+
+            
+            document.getElementById('Lovevalue').value = newBmi;
+            
+            if(newBmi >19 && newBmi<26){
+                document.getElementById('footer').innerHTML= "Congratulation You are healthy";
+            }
+            else if(newBmi <19){
+                document.getElementById('footer').innerHTML= "you re underweight Plz take proper diet to gain some Weight ";
+            }
+
+            else if(newBmi >25){
+                document.getElementById('footer').innerHTML= "You are Overweight plz do some exercise to maintain your health";
+            }
+             
+            }
+          }
+      </script>
+</body>
+</html>
+
+
